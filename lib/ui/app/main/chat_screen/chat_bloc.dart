@@ -54,17 +54,20 @@ class ChatBloc extends BaseBloc {
             name: uuid.v1(),
             roomImageUrl: TestImageList[i % (TestImageList.length)],
             lastMessage: MessageModel(
-              id: uuid.v1(),
-              message: uuid.v1(),
-              senderId: uuid.v1(),
-              senderName: uuid.v1(),
-              date: DateTime.now().subtract(
-                Duration(
-                  minutes: random.nextInt(60),
-                  seconds: random.nextInt(60),
+                id: uuid.v1(),
+                message: uuid.v1(),
+                date: DateTime.now().subtract(
+                  Duration(
+                    minutes: random.nextInt(60),
+                    seconds: random.nextInt(60),
+                  ),
                 ),
-              ),
-            ),
+                user: UserModel(
+                  id: uuid.v1(),
+                  name: uuid.v1(),
+                  email: 'email',
+                  image: TestImageList[i % (TestImageList.length)],
+                )),
           );
           listChatRoomBackup.add(chatRoomModel);
         }
